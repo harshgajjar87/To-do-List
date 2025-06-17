@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <h1>Edit Task</h1>
+    </header>
+
+    <div class="box">
+        <form method="post" action="/update/<%= index %>" class="editbox">
+            <input type="text" name="task" value="<%= task %>" required>
+            <select name="priority">
+                <option value="Low" <%= priority === 'Low' ? 'selected' : '' %>>Low</option>
+                <option value="Medium" <%= priority === 'Medium' ? 'selected' : '' %>>Medium</option>
+                <option value="High" <%= priority === 'High' ? 'selected' : '' %>>High</option>
+            </select>
+            <button type="submit">+</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Todo List App by Harsh</p>
+    </footer>
+</body>
+</html>

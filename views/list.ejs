@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <h1>Todo List</h1>
+    </header>
+
+    <div class="box">
+        <form action="/" method="post" class="editbox">
+            <div class="editbox">
+            <input type="text" name="todo" placeholder="Enter the task">
+            <select name="priority">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <button type="submit">+</button>
+            </div>
+        </form>
+
+        <form method="get" action="/" class="filter-form">
+            <label for="priority">Filter by Priority:</label>
+            <select name="priority" class="select" onchange="this.form.submit()">
+                <option value="">All</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+        </form>
+
+        <% for(let i = 0; i < ejes.length; i++) { %>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= ejes[i].task %> (<%= ejes[i].priority %>)</p>
+                <form action="/edit/<%= i %>" method="post" style="display:inline;">
+                    <button>Edit</button>
+                </form>
+                <form action="/delete/<%= i %>" method="post" style="display:inline;">
+                    <button>Delete</button>
+                </form>
+            </div>
+        <% } %>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Todo List App by Harsh</p>
+    </footer>
+</body>
+</html>
